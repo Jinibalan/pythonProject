@@ -1,0 +1,20 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+serv_obj = Service("/Users/jiniab/Downloads/chromedriver-3")
+driver = webdriver.Chrome(service=serv_obj)
+driver.get("https://google.com")
+
+driver.find_element(By.LINK_TEXT, "Advertising").click()
+time.sleep(4)
+print(driver.current_url)
+print(driver.title)
+string: str = driver.current_url
+if str== "https://google.com":
+    print("Test Failed")
+else:
+    print("Test Success")
+
+driver.close()
